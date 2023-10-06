@@ -8,10 +8,15 @@ class Ingredient(models.Model):
         'foodgroups.FoodGroup',
         related_name='ingredients_in_foodgroup',
         blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+    )
+    user = models.ForeignKey(
+        'users.User',
+        related_name='ingredients',
         on_delete=models.SET_NULL,
         null=True
     )
-
     
     def __str__(self):
         return f"{self.name}"
