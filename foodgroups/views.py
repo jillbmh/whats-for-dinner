@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
 from .models import FoodGroup
 from .serializers.common import FoodGroupSerializer
 from .serializers.populated import PopulatedFoodGroupSerializer
@@ -14,3 +14,6 @@ class FoodGroupListView(ListCreateAPIView):
             return FoodGroupSerializer
         return PopulatedFoodGroupSerializer
     
+class FoodGroupDetailView(RetrieveAPIView):
+    queryset = FoodGroup.objects.all()
+    serializer_class = FoodGroupSerializer

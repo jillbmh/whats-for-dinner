@@ -7,3 +7,6 @@ class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
         fields = '__all__'
+
+class FoodGroupWithIngredientsSerializer(FoodGroupSerializer):
+    ingredients = IngredientSerializer(many=True)
