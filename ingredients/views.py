@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.db.models import Q
 from .models import Ingredient
 from .serializers.common import IngredientSerializer
 from rest_framework.generics import GenericAPIView
@@ -11,34 +10,21 @@ from rest_framework.generics import (
 )
 from lib.permissions import IsOwnerOrReadOnly
 from lib.views import UserListCreateAPIView
-from rest_framework.response import Response
 
 
 #set all ingredients
 class IngredientView(GenericAPIView):
     queryset=Ingredient.objects.all()
     serializer_class=IngredientSerializer
-    permission_classes= [IsAuthenticated]
+    permission_classes= [IsAuthenticatedOrReadOnly]
 
 #view all ingredients
 class IngredientListView(IngredientView, UserListCreateAPIView):
-    permission_classes = [IsAuthenticated]
-
-#view by foodgroup
-class IngredientListbyFoodGroup(GenericAPIView):
-    serializer_class= IngredientSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        queryset = Ingredient.objects.all()
-        foodgroup_ids = self.request.query.params.getlist('foodgroups')
-        if foodgroup_ids:
-            queryset = queryset.filter(Q(foodgroup__ids__in=foodgroup_ids))
-        return queryset
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 # view single Ingredient
-class SingleIngredientView(IngredientView, UserListCreateAPIView, RetrieveUpdateDestroyAPIView):
+class SingleIngredientView(IngredientView, RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
         
 

@@ -17,4 +17,4 @@ class Meal(models.Model):
     )
 
     def __str__(self):
-        return f"{self.user}'s Meal"
+        return f"{self.user}'s Meal- ID:{self.pk}"

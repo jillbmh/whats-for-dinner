@@ -5,6 +5,11 @@ from django.db import models
 class FoodGroup(models.Model):
     name = models.CharField(max_length=100)
     NULL = True
+    ingredients = models.ManyToManyField(
+        'ingredients.Ingredient',
+        related_name='foodgroup_ingredients',
+        blank= False,
+    )
 
 
     def __str__(self):

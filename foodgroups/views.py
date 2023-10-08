@@ -13,3 +13,4 @@ class FoodGroupListView(ListCreateAPIView):
         if self.request.method == 'POST':
             return FoodGroupSerializer
         return PopulatedFoodGroupSerializer
+    
