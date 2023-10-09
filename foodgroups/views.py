@@ -5,7 +5,7 @@ from .serializers.common import FoodGroupSerializer
 from .serializers.populated import PopulatedFoodGroupSerializer
 # Create your views here.
 
-
+#FoodGroup List
 class FoodGroupListView(ListCreateAPIView):
     queryset = FoodGroup.objects.all()
 
@@ -13,7 +13,8 @@ class FoodGroupListView(ListCreateAPIView):
         if self.request.method == 'POST':
             return FoodGroupSerializer
         return PopulatedFoodGroupSerializer
-    
+
+#Individual foodgroup
 class FoodGroupDetailView(RetrieveAPIView):
     queryset = FoodGroup.objects.all()
-    serializer_class = FoodGroupSerializer
+    serializer_class = PopulatedFoodGroupSerializer

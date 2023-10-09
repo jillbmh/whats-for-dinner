@@ -11,6 +11,7 @@ from rest_framework.generics import (
 from lib.permissions import IsOwnerOrReadOnly
 from lib.views import UserListCreateAPIView
 
+#! Dont forget to change the authorisations back to 'isAuthenticated'
 
 #set all ingredients
 class IngredientView(GenericAPIView):
@@ -26,16 +27,6 @@ class IngredientListView(IngredientView, UserListCreateAPIView):
 # view single Ingredient
 class SingleIngredientView(IngredientView, RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
-
-
-class IngredientsByFoodGroupView(ListAPIView):
-    serializer_class = IngredientSerializer
-
-    def get_queryset(self):
-        foodgroup_id = self.kwargs['foodgroup_id']
-        queryset = Ingredient.objects.filter(foodgroup_id=foodgroup_id)
-        return queryset
-        
 
 
 

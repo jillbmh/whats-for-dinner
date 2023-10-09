@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+#This creates a foodgroup table with the fields, name and ingredients
 class FoodGroup(models.Model):
     name = models.CharField(max_length=100)
     NULL = True

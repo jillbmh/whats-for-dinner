@@ -1,6 +1,7 @@
 from django.db import models
 
-# Create your models here.
+# This creates an ingredient table with a field of name, image, foodgroup, user. 
+# Foreign key links the Ingredients table with the foodgroup and user tables using the PK ID no.
 class Ingredient(models.Model):
     name = models.CharField(max_length= 30)
     image= models.URLField()
