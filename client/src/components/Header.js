@@ -1,5 +1,13 @@
+import { Link } from 'react-router-dom'
+
 export default function Header() {
   return (
-    <h1>Header</h1>
+    <header>
+      <nav>
+        <Link to= '/'>Whats for Dinner</Link>
+        <Link to= '/nutritional-info'>Nutritional Info</Link>
+        <Link to= '/account'>Login / Register</Link>
+      </nav>
+    </header>
   )
 }
