@@ -1,183 +1,202 @@
 [
-    {
+  {
       "model": "ingredients.ingredient",
       "pk": 1,
       "fields": {
-        "name": "Minced Beef",
-        "image": "mince-beef.url",
-        "foodgroup": 1
+          "name": "Minced Beef",
+          "image": "mince-beef.url",
+          "foodgroup": 1,
+          "subgroup": "Lean Meats"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 2,
       "fields": {
-        "name": "Broccoli",
-        "image": "broccoli.url",
-        "foodgroup": 2
+          "name": "Broccoli",
+          "image": "broccoli.url",
+          "foodgroup": 2,
+          "subgroup": "Vegetables (cooked)"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 3,
       "fields": {
-        "name": "Tomato",
-        "image": "tomato.url",
-        "foodgroup": 2
+          "name": "Tomato",
+          "image": "tomato.url",
+          "foodgroup": 2,
+          "subgroup": "Vegetables (cooked)"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 4,
       "fields": {
-        "name": "Chicken Breast",
-        "image": "chicken-breast.url",
-        "foodgroup": 1
+          "name": "Chicken Breast",
+          "image": "chicken-breast.url",
+          "foodgroup": 1,
+          "subgroup": "Poultry"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 5,
       "fields": {
-        "name": "Olive Oil",
-        "image": "olive-oil.url",
-        "foodgroup": 3
+          "name": "Olive Oil",
+          "image": "olive-oil.url",
+          "foodgroup": 3,
+          "subgroup": "Oils and Dressings"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 6,
       "fields": {
-        "name": "Milk",
-        "image": "milk.url",
-        "foodgroup": 4
+          "name": "Milk",
+          "image": "milk.url",
+          "foodgroup": 4,
+          "subgroup": "Dairy"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 7,
       "fields": {
-        "name": "Potato",
-        "image": "potato.url",
-        "foodgroup": 5
+          "name": "Potato",
+          "image": "potato.url",
+          "foodgroup": 5,
+          "subgroup": "Potatoes"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 8,
       "fields": {
-        "name": "Salmon",
-        "image": "salmon.url",
-        "foodgroup": 1
+          "name": "Salmon",
+          "image": "salmon.url",
+          "foodgroup": 1,
+          "subgroup": "Fish and Shellfish"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 9,
       "fields": {
-        "name": "Spinach",
-        "image": "spinach.url",
-        "foodgroup": 2
+          "name": "Spinach",
+          "image": "spinach.url",
+          "foodgroup": 2,
+          "subgroup": "Vegetables (cooked)"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 10,
       "fields": {
-        "name": "Soy Sauce",
-        "image": "soy-sauce.url",
-        "foodgroup": 3
+          "name": "Soy Sauce",
+          "image": "soy-sauce.url",
+          "foodgroup": 3,
+          "subgroup": "Sauces and Additional Flavors"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 11,
       "fields": {
-        "name": "Cheese",
-        "image": "cheese.url",
-        "foodgroup": 4
+          "name": "Cheese",
+          "image": "cheese.url",
+          "foodgroup": 4,
+          "subgroup": "Dairy"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 12,
       "fields": {
-        "name": "Rice",
-        "image": "rice.url",
-        "foodgroup": 5
+          "name": "Rice",
+          "image": "rice.url",
+          "foodgroup": 5,
+          "subgroup": "Rice and Grains"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 13,
       "fields": {
-        "name": "Egg",
-        "image": "egg.url",
-        "foodgroup": 1
+          "name": "Egg",
+          "image": "egg.url",
+          "foodgroup": 1,
+          "subgroup": "Eggs"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 14,
       "fields": {
-        "name": "Carrot",
-        "image": "carrot.url",
-        "foodgroup": 2
+          "name": "Carrot",
+          "image": "carrot.url",
+          "foodgroup": 2,
+          "subgroup": "Vegetables (cooked)"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 15,
       "fields": {
-        "name": "Ketchup",
-        "image": "ketchup.url",
-        "foodgroup": 3
+          "name": "Ketchup",
+          "image": "ketchup.url",
+          "foodgroup": 3,
+          "subgroup": "Sauces and Additional Flavors"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 16,
       "fields": {
-        "name": "Yogurt",
-        "image": "yogurt.url",
-        "foodgroup": 4
+          "name": "Yogurt",
+          "image": "yogurt.url",
+          "foodgroup": 4,
+          "subgroup": "Dairy"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 17,
       "fields": {
-        "name": "Pasta",
-        "image": "pasta.url",
-        "foodgroup": 5
+          "name": "Pasta",
+          "image": "pasta.url",
+          "foodgroup": 5,
+          "subgroup": "Pasta"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 18,
       "fields": {
-        "name": "Beef Steak",
-        "image": "beef-steak.url",
-        "foodgroup": 1
+          "name": "Beef Steak",
+          "image": "beef-steak.url",
+          "foodgroup": 1,
+          "subgroup": "Lean Meats"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 19,
       "fields": {
-        "name": "Cauliflower",
-        "image": "cauliflower.url",
-        "foodgroup": 2
+          "name": "Cauliflower",
+          "image": "cauliflower.url",
+          "foodgroup": 2,
+          "subgroup": "Vegetables (cooked)"
       }
-    },
-    {
+  },
+  {
       "model": "ingredients.ingredient",
       "pk": 20,
       "fields": {
-        "name": "Sour Cream",
-        "image": "sour-cream.url",
-        "foodgroup": 4
+          "name": "Sour Cream",
+          "image": "sour-cream.url",
+          "foodgroup": 4,
+          "subgroup": "Dairy"
       }
-    }
-  ]
-  
+  }
+]

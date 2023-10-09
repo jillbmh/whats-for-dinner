@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import axios from 'axios'
+import ViewFoodGroups from './ViewFoodGroups'
+
 
 export default function CreateMeal(){
 
@@ -17,7 +19,13 @@ export default function CreateMeal(){
 
 
   return (
-    <h1>Create Meal</h1>
+    <main>
+      <h1>Create Meal</h1>
+      <section className='food-filters'>
+        <ViewFoodGroups />
+      </section>
+    </main>
+
   )
 }
 

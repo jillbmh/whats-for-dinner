@@ -1,0 +1,43 @@
+{
+    "subgroups": {
+      "Vegetables (and Fruit)": [
+        "Vegetables (cooked)",
+        "Salad",
+        "Fruit",
+        "Raw Vegetables"
+      ],
+      "Protein": [
+        "Fish and shellfish",
+        "Beans, peas and lentils",
+        "Nuts and seeds",
+        "Plant based protein sources",
+        "Eggs",
+        "Poultry",
+        "Lean meats",
+        "Game",
+        "Processed Proteins"
+      ],
+      "Starchy Carbs": [
+        "Potatoes",
+        "Bread",
+        "Cereals",
+        "Rice and Grains",
+        "Pasta",
+        "Noodles"
+      ],
+      "Dairy and dairy alternatives": [
+        "Dairy",
+        "Dairy alternatives"
+      ],
+      "Sauces and additional flavours": [
+        "Sauces and Gravy",
+        "Spices",
+        "Herbs",
+        "Spice mixes",
+        "Herb mixes",
+        "Condiments",
+        "Dressings"
+      ]
+    }
+  }
+  
