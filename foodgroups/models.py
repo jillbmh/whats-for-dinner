@@ -5,6 +5,10 @@ from django.db import models
 #This creates a foodgroup table with the fields, name and ingredients
 class FoodGroup(models.Model):
     name = models.CharField(max_length=100)
+    subgroup = models.ManyToManyField(
+        'subgroups.Subgroup',
+        related_name='subgroup',
+    )
     NULL = True
     ingredients = models.ManyToManyField(
         'ingredients.Ingredient',

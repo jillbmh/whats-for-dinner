@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export default function ViewFoodGroups({ filter, setFilter }) {
+export default function FilterMenus({ filter, setFilter }) {
   const [foodGroups, setFoodGroups] = useState([])
 
   useEffect(() => {

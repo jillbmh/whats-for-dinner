@@ -1,0 +1,227 @@
+[
+  {
+      "model": "subgroups.subgroup",
+      "pk": 1,
+      "fields": {
+          "foodgroup": 2,
+          "name": "Vegetables (cooked)"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 2,
+      "fields": {
+          "foodgroup": 2,
+          "name": "Salad"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 3,
+      "fields": {
+          "foodgroup": 2,
+          "name": "Fruit"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 4,
+      "fields": {
+          "foodgroup": 2,
+          "name": "Raw Vegetables"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 5,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Fish and shellfish"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 6,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Beans, peas and lentils"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 7,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Nuts and seeds"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 8,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Plant based protein sources"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 9,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Eggs"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 10,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Poultry"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 11,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Lean meats"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 12,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Game"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 13,
+      "fields": {
+          "foodgroup": 1,
+          "name": "Processed Proteins"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 14,
+      "fields": {
+          "foodgroup": 5,
+          "name": "Potatoes"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 15,
+      "fields": {
+          "foodgroup": 5,
+          "name": "Bread"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 16,
+      "fields": {
+          "foodgroup": 5,
+          "name": "Cereals"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 17,
+      "fields": {
+          "foodgroup": 5,
+          "name": "Rice and Grains"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 18,
+      "fields": {
+          "foodgroup": 5,
+          "name": "Pasta"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 19,
+      "fields": {
+          "foodgroup": 5,
+          "name": "Noodles"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 20,
+      "fields": {
+          "foodgroup": 4,
+          "name": "Dairy"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 21,
+      "fields": {
+          "foodgroup": 4,
+          "name": "Dairy alternatives"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 22,
+      "fields": {
+          "foodgroup": 3,
+          "name": "Sauces and Gravy"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 23,
+      "fields": {
+          "foodgroup": 3,
+          "name": "Spices"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 24,
+      "fields": {
+          "foodgroup": 3,
+          "name": "Herbs"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 25,
+      "fields": {
+          "foodgroup": 3,
+          "name": "Spice mixes"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 26,
+      "fields": {
+          "foodgroup": 3,
+          "name": "Herb mixes"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 27,
+      "fields": {
+          "foodgroup": 3,
+          "name": "Condiments"
+      }
+  },
+  {
+      "model": "subgroups.subgroup",
+      "pk": 28,
+      "fields": {
+          "foodgroup": 3,
+          "name": "Dressings"
+      }
+  }
+]
+

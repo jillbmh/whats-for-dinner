@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from ..models import FoodGroup
-from ingredients.models import Ingredient
+
 
 
 # This serializes the food group data
