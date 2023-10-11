@@ -12,10 +12,11 @@ export default function CreateMeal() {
         const foodGroupsResponse = await axios.get('/api/food-groups/')
         setFoodGroups(foodGroupsResponse.data)
 
-        const subgroupsResponse = await axios.get('/api/subgroups/') 
+        // Fetch subgroup data 
+        const subgroupsResponse = await axios.get('/api/subgroups/')
         const subgroupData = subgroupsResponse.data
 
-        // Organise subgroup data into an object for easy access
+        // Organise subgroup data into an object 
         const subgroupMap = {}
         subgroupData.forEach((subgroup) => {
           subgroupMap[subgroup.id] = subgroup
@@ -37,20 +38,19 @@ export default function CreateMeal() {
   }
 
   return (
-    <div>
+    <main className='foodgroup-filters'>
       {foodGroups.map((foodGroup) => (
-        <div key={foodGroup.id}>
-          <h3>{foodGroup.name}</h3>
+        <section key={foodGroup.id}>
           {foodGroup.ingredients_in_foodgroup && foodGroup.ingredients_in_foodgroup.length > 0 ? (
             <select
               value={selectedSubgroups[foodGroup.id] || ''}
               onChange={(e) => handleSubgroupChange(e, foodGroup.id)}
             >
-              <option value=''>Select a subgroup</option>
+              <option value=''>{foodGroup.name}</option> 
               {foodGroup.ingredients_in_foodgroup.map((ingredient) => {
                 if (ingredient.subgroups && ingredient.subgroups.length > 0) {
                   return ingredient.subgroups.map((subgroupId) => (
-                    <option key={subgroupId} value={subgroupId}>
+                    <option key={subgroupId} value={foodGroup.name}>
                       {subgroups[subgroupId] ? subgroups[subgroupId].subgroupname : 'Loading...'}
                     </option>
                   ))
@@ -60,8 +60,8 @@ export default function CreateMeal() {
               })}
             </select>
           ) : 'No subgroups available'}
-        </div>
+        </section>
       ))}
-    </div>
+    </main>
   )
 }
