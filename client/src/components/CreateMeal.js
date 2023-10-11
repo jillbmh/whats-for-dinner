@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useHistory } from 'react-router-dom'
 
 export default function CreateMeal() {
   const [foodGroups, setFoodGroups] = useState([])
@@ -8,6 +8,7 @@ export default function CreateMeal() {
   const [selectedSubgroups, setSelectedSubgroups] = useState({})
   const [selectedIngredients, setSelectedIngredients] = useState([])
   const [displayedIngredients, setDisplayedIngredients] = useState([])
+  const [error, setError] = useState(null)
 
   const navigate = useNavigate()
 
@@ -18,6 +19,8 @@ export default function CreateMeal() {
         ? prevSelected.filter((item) => item !== ingredient)
         : [...prevSelected, ingredient]
     )
+    //clear error message if on display
+    setError(null)
   }
 
   useEffect(() => {
@@ -63,10 +66,32 @@ export default function CreateMeal() {
       [foodGroupId]: selectedSubgroupId,
     }))
   }
-  //creates a meal and passess it to the /my-meal component
-  const createMeal = () => {
-    navigate('/my-meal', { state: { selectedIngredients } })
+  // creates a meal and passess it to the /my-meal component
+  // const createMeal = () => {
+  //   navigate('/my-meal', { state: { selectedIngredients } })
+  // }
+  const createMeal = async () => {
+    try {
+      // Extract the PKs from the selectedIngredients array
+      const ingredientIds = selectedIngredients.map(ingredient => ingredient.id)
+      console.log('Request Data:', { ingredients: ingredientIds })
+      console.log('Request Headers:', {
+        'Content-Type': 'application/json', 
+      })
+  
+      // Make the POST request to create the meal
+      const response = await axios.post('/api/my-meals/create-meal/', { ingredients: ingredientIds })
+      console.log('Meal created successfully:', response.data)
+  
+      // Navigate to the '/my-meal' component 
+      navigate('/my-meal', { state: { selectedIngredients } })
+    } catch (error) {
+      console.error('Error creating meal:', error)
+      //send an error message to the user if not created
+      setError('Failed to create meal. Select an ingredient to continue.')
+    }
   }
+
 
   return (
     <main>
@@ -123,7 +148,7 @@ export default function CreateMeal() {
         </div>
       </section>
       <section className='selected-ingredients'>
-        <h3>Here is what you have selected:</h3>
+        <h3>Your meal so far:</h3>
         <ul>
           {/* this maps over the selected ingredients and returns them as a list */}
           {selectedIngredients.map((ingredient) => (
@@ -135,6 +160,11 @@ export default function CreateMeal() {
         {/* //this button uses navigate to move the ingredients and the create meal function */}
         <button onClick={createMeal}>Create My Meal</button>
       </section>
+      {error && (
+        <div className="error-message">
+          {error}
+        </div>
+      )}
     </main>
   )
 }
