@@ -12,11 +12,10 @@ export default function CreateMeal() {
         const foodGroupsResponse = await axios.get('/api/food-groups/')
         setFoodGroups(foodGroupsResponse.data)
 
-        // Fetch subgroup data 
         const subgroupsResponse = await axios.get('/api/subgroups/')
         const subgroupData = subgroupsResponse.data
 
-        // Organise subgroup data into an object 
+        // Organise subgroup data into an object
         const subgroupMap = {}
         subgroupData.forEach((subgroup) => {
           subgroupMap[subgroup.id] = subgroup
@@ -31,14 +30,26 @@ export default function CreateMeal() {
   }, [])
 
   const handleSubgroupChange = (e, foodGroupId) => {
+    const selectedSubgroupId = e.target.value
+
+    if (selectedSubgroupId) {
+      // Log associated ingredients
+      if (subgroups[selectedSubgroupId] && subgroups[selectedSubgroupId].ingredients) {
+        subgroups[selectedSubgroupId].ingredients.forEach((ingredient) => {
+          console.log('Ingredient Name:', ingredient.name)
+          console.log('Ingredient Image:', ingredient.image)
+        })
+      }
+    }
+
     setSelectedSubgroups((prevSelected) => ({
       ...prevSelected,
-      [foodGroupId]: e.target.value,
+      [foodGroupId]: selectedSubgroupId,
     }))
   }
 
   return (
-    <main className='foodgroup-filters'>
+    <main className="foodgroup-filters">
       {foodGroups.map((foodGroup) => (
         <section key={foodGroup.id}>
           {foodGroup.ingredients_in_foodgroup && foodGroup.ingredients_in_foodgroup.length > 0 ? (
@@ -46,18 +57,24 @@ export default function CreateMeal() {
               value={selectedSubgroups[foodGroup.id] || ''}
               onChange={(e) => handleSubgroupChange(e, foodGroup.id)}
             >
-              <option value=''>{foodGroup.name}</option> 
-              {foodGroup.ingredients_in_foodgroup.map((ingredient) => {
-                if (ingredient.subgroups && ingredient.subgroups.length > 0) {
-                  return ingredient.subgroups.map((subgroupId) => (
-                    <option key={subgroupId} value={foodGroup.name}>
-                      {subgroups[subgroupId] ? subgroups[subgroupId].subgroupname : 'Loading...'}
-                    </option>
-                  ))
-                } else {
-                  return null // No subgroups available for this ingredient
-                }
-              })}
+              <option value="">{foodGroup.name}</option>
+              {[
+                ...new Set(
+                  foodGroup.ingredients_in_foodgroup
+                    .map((ingredient) => {
+                      if (ingredient.subgroups && ingredient.subgroups.length > 0) {
+                        return ingredient.subgroups[0]
+                      } else {
+                        return null
+                      }
+                    })
+                    .filter((subgroupId) => subgroupId !== null)
+                )
+              ].map((subgroupId) => (
+                <option key={subgroupId} value={subgroupId}>
+                  {subgroups[subgroupId] ? subgroups[subgroupId].subgroupname : 'Loading...'}
+                </option>
+              ))}
             </select>
           ) : 'No subgroups available'}
         </section>
