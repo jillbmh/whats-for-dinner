@@ -27,5 +27,11 @@ class UsersMealsView(MealView, RetrieveUpdateDestroyAPIView):
 #single meal 
 class SingleMealDetailView(MealView, RetrieveUpdateDestroyAPIView):
     serializer_class = PopulatedMealSerializer
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    # permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     queryset = Meal.objects.all()
+
+# create meal
+class MealCreateView(generics.CreateAPIView):
+    queryset = Meal.objects.all()
+    serializer_class = MealSerializer
+    # permission_classes = [IsAuthenticated]
