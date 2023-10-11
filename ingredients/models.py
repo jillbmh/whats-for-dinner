@@ -12,7 +12,10 @@ class Ingredient(models.Model):
         null=True,
         on_delete=models.SET_NULL,
     )
-    subgroup = models.CharField(max_length=100, default='')
+    subgroups = models.ManyToManyField(
+        'subgroups.Subgroup',
+        related_name='ingredients'
+    )
     user = models.ForeignKey(
         'users.User',
         related_name='ingredients',
