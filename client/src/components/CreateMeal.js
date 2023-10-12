@@ -66,7 +66,7 @@ export default function CreateMeal() {
       [foodGroupId]: selectedSubgroupId,
     }))
   }
-  // creates a meal and passess it to the /my-meal component
+  //creates a meal and passess it to the /my-meal component
   // const createMeal = () => {
   //   navigate('/my-meal', { state: { selectedIngredients } })
   // }
@@ -91,7 +91,8 @@ export default function CreateMeal() {
       setError('Failed to create meal. Select an ingredient to continue.')
     }
   }
-
+  
+  
 
   return (
     <main>

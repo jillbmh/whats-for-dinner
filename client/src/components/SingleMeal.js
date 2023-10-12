@@ -1,12 +1,14 @@
 import { useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 export default function SingleMeal() {
   const location = useLocation()
+  // const { mealId } = useParams()
+
   const selectedIngredients = location.state && location.state.selectedIngredients ? location.state.selectedIngredients : []
-
-
+  console.log('selected ingredients =>',selectedIngredients)
+  // console.log('mealId in SingleMeal', mealId)
   return (
     <main className='my-meal-container'>
       <h1>Great choice! Here is your meal:</h1>
@@ -29,6 +31,7 @@ export default function SingleMeal() {
         <Link to="/my-meals" className="button">Go to my meals!</Link>
         <Link to="/create-meal" className="button">Create another</Link>
         <Link to="*" className="button">Print</Link>
+        <Link to="/update" className="button">Edit Meal</Link>
       </section>
     </main>
   )

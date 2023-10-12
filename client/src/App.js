@@ -11,6 +11,7 @@ import NutritionalInfo from './components/NutritionalInfo'
 import PageNotFound from './components/PageNotFound'
 import SingleMeal from './components/SingleMeal'
 import AccountModal from './components/AccountModal'
+import UpdateMeal from './components/UpdateMeal'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -31,6 +32,7 @@ export default function App() {
         <Route path ='/my-meal' element={<SingleMeal />} />
         <Route path ='/account' element={<AccountModal />} />
         <Route path ='*' element={<PageNotFound />} />
+        <Route path ='/update' element={<UpdateMeal />} />
       </Routes>
       <Footer />
     </BrowserRouter>
