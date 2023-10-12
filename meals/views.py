@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView 
+from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
 from .models import Meal
 from .serializers.common import MealSerializer
 from .serializers.populated import PopulatedMealSerializer
@@ -36,3 +36,7 @@ class MealCreateView(generics.CreateAPIView):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
     # permission_classes = [IsAuthenticated]
+
+class UpdateMealView(MealView, UpdateAPIView):
+    def patch(self, request, *args, **kwargs):
+        return super().patch(request, *args, **kwargs)
