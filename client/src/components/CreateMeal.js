@@ -158,7 +158,7 @@ export default function CreateMeal() {
             </li>
           ))}
         </ul>
-        {/* //this button uses navigate to move the ingredients and the create meal function */}
+        {/* //this button executes the create meal function */}
         <button onClick={createMeal}>Create My Meal</button>
       </section>
       {error && (
