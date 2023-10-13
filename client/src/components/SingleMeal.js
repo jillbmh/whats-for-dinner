@@ -30,8 +30,21 @@ export default function SingleMeal() {
       console.log(error)
     }
   }
-  
-
+  async function getMeals() {
+    try {
+      const { data } = await axios.get(`/api/my-meals/${mealId}`, {  
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        }, 
+      })
+      setMeal(data)
+      console.log('get meal data', data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  console.log(meal)
+  getMeals()
 
   return (
     <main className='my-meal-container'>
