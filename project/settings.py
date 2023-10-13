@@ -12,13 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import environ 
-import dotenv
 import os 
 import django_on_heroku
 
 
 # Initialise environment variables
-dotenv.load_dotenv()
 env = environ.Env()
 environ.Env.read_env()
 
