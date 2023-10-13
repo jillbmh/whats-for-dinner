@@ -12,6 +12,7 @@ pylint = "*"
 autopep8 = "*"
 djangorestframework-simplejwt = "*"
 environ = "*"
+django-on-heroku = "*"
 
 [dev-packages]
 
