@@ -84,7 +84,7 @@ export default function CreateMeal() {
       console.log('Meal created successfully:', response.data)
   
       // Navigate to the '/my-meal' component 
-      navigate('/my-meal', { state: { selectedIngredients } })
+      navigate(`/my-meals/${response.data.id}`, { state: { selectedIngredients } })
     } catch (error) {
       console.error('Error creating meal:', error)
       //send an error message to the user if not created

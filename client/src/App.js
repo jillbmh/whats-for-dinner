@@ -29,10 +29,10 @@ export default function App() {
         <Route path ='/my-meals' element={<AllMeals />} />
         <Route path ='/create-meal' element={<CreateMeal />} />
         <Route path ='/nutritional-info' element={<NutritionalInfo />} />
-        <Route path ='/my-meal' element={<SingleMeal />} />
+        <Route path ='/my-meals/:id' element={<SingleMeal />} />
         <Route path ='/account' element={<AccountModal />} />
+        <Route path ='/my-meals/:id/update' element={<UpdateMeal />} />
         <Route path ='*' element={<PageNotFound />} />
-        <Route path ='/update' element={<UpdateMeal />} />
       </Routes>
       <Footer />
     </BrowserRouter>
