@@ -100,7 +100,7 @@ DATABASES = {
     'NAME': env('DATABASE_NAME'),
     'USER': env('DATABASE_USER'),
     'PASSWORD': env('DATABASE_PASS'),
-    'HOST': 'ep-shrill-darkness-64954402.eu-central-1.aws.neon.tech',
+    'HOST': env('DATABASE_HOST'),
     'PORT': '5432',
     'OPTIONS': {'sslmode': 'require'},
   }
