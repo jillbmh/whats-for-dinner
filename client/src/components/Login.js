@@ -24,7 +24,7 @@ export default function Login(){
       const { data } = await axios.post('/api/auth/login/', formData)
       setToken('access-token', data.access)
       setToken('refresh-token', data.refresh)
-      navigate('/create-meal')
+      navigate('/my-meals')
     } catch (error) {
       setMessage(error.response.data.detail)
     }
@@ -37,19 +37,19 @@ export default function Login(){
   }
 
   return (
-    <main>
-      <section className='login-form'>
-        <h3>Login</h3>
+    <main className='form'>
+      <section>
+        <h3>Login Here:</h3>
         <form onSubmit={handleSubmit}>
           <input type="text" name="username" placeholder="Email" value={formData.username} onChange={handleChange} />
           <br />
           <input type="password" name="password"  placeholder="Password" value={formData.password} onChange={handleChange}  />
           <br />
           {message && <p>{message}</p>}
-          <input type="submit" value="Login" />
+          <input className='button' type="submit" value="Login" />
         </form>
       </section>
-      <button onClick={handleLogout}>Log Out</button>
+      <button className='button' onClick={handleLogout}>Log Out</button>
       <Link to="/account/register" className="link-text">Need to register first?</Link>
     </main>
   )

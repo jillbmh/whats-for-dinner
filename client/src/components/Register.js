@@ -35,9 +35,9 @@ export default function Register() {
   }
 
   return (
-    <main>
-      <section className='register-form'>
-        <h3>Register</h3>
+    <main className='form'>
+      <section>
+        <h3>Register Here:</h3>
         <form onSubmit={handleRegister}> 
           <input type="text" name="username" placeholder="Email" value={formData.username} onChange={handleChange} />
           <br />
@@ -46,10 +46,10 @@ export default function Register() {
           <input type="password" name="password_confirmation" placeholder="Confirm Password" value={formData.password_confirmation} onChange={handleChange}  />
           <br />
           {message && <p>{message}</p>}
-          <input type="submit" value="Register" />
+          <input className='button' type="submit" value="Register" />
+          <Link to="/account/login" className="link-text">Already registered? Login instead</Link>
         </form>
       </section>
-      <Link to="/account/login" className="link-text">Already registered? Login instead</Link>
     </main>
   )
 }

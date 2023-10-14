@@ -13,6 +13,7 @@ import SingleMeal from './components/SingleMeal'
 import Login from './components/Login'
 import Register from './components/Register'
 import UpdateMeal from './components/UpdateMeal'
+import Spinner from './components/Spinner'
 
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
