@@ -10,8 +10,10 @@ import HomePage from './components/HomePage'
 import NutritionalInfo from './components/NutritionalInfo'
 import PageNotFound from './components/PageNotFound'
 import SingleMeal from './components/SingleMeal'
-import AccountModal from './components/AccountModal'
+import Login from './components/Login'
+import Register from './components/Register'
 import UpdateMeal from './components/UpdateMeal'
+
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -30,7 +32,8 @@ export default function App() {
         <Route path ='/create-meal' element={<CreateMeal />} />
         <Route path ='/nutritional-info' element={<NutritionalInfo />} />
         <Route path ='/my-meals/:id' element={<SingleMeal />} />
-        <Route path ='/account' element={<AccountModal />} />
+        <Route path ='/account/login' element={<Login />} />
+        <Route path ='/account/register' element={<Register />} />
         <Route path ='/my-meals/:id/update' element={<UpdateMeal />} />
         <Route path ='*' element={<PageNotFound />} />
       </Routes>

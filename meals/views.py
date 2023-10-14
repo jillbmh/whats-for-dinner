@@ -38,5 +38,6 @@ class MealCreateView(generics.CreateAPIView):
     # permission_classes = [IsAuthenticated]
 
 class UpdateMealView(MealView, UpdateAPIView):
+    # permission_classes = [IsOwnerOrReadOnly, IsAuthenticated]
     def patch(self, request, *args, **kwargs):
         return super().patch(request, *args, **kwargs)

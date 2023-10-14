@@ -6,13 +6,10 @@ import { useState, useEffect } from 'react'
 import { getToken } from '../lib/auth'
 
 export default function SingleMeal() {
-  // const location = useLocation()
   const navigate = useNavigate()
   const [ingredients, setIngredients] = useState(null)
   const { id } = useParams()
-  // const selectedIngredients = location.state && location.state.selectedIngredients ? location.state.selectedIngredients : []
-  // console.log('selected ingredients =>',selectedIngredients)
-  // // console.log('mealId in SingleMeal', mealId)
+
   async function deleteMeal() {
     try {
       await axiosAuth.delete(`/api/my-meals/${id}/`)

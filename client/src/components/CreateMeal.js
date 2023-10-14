@@ -67,17 +67,11 @@ export default function CreateMeal() {
     }))
   }
   //creates a meal and passess it to the /my-meal component
-  // const createMeal = () => {
-  //   navigate('/my-meal', { state: { selectedIngredients } })
-  // }
+
   const createMeal = async () => {
     try {
       // Extract the PKs from the selectedIngredients array
       const ingredientIds = selectedIngredients.map(ingredient => ingredient.id)
-      console.log('Request Data:', { ingredients: ingredientIds })
-      console.log('Request Headers:', {
-        'Content-Type': 'application/json', 
-      })
   
       // Make the POST request to create the meal
       const response = await axios.post('/api/my-meals/create-meal/', { ingredients: ingredientIds })
@@ -88,7 +82,7 @@ export default function CreateMeal() {
     } catch (error) {
       console.error('Error creating meal:', error)
       //send an error message to the user if not created
-      setError('Failed to create meal. Select an ingredient to continue.')
+      setError('Select an ingredient to continue.')
     }
   }
   

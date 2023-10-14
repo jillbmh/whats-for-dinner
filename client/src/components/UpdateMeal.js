@@ -83,10 +83,7 @@ export default function UpdateMeal(){
       [foodGroupId]: selectedSubgroupId,
     }))
   }
-  //creates a meal and passess it to the /my-meal component
-  // const createMeal = () => {
-  //   navigate('/my-meal', { state: { selectedIngredients } })
-  // }
+  //updates a meal and passess it to the /my-meal component
   const updateMeal = async () => {
     try {
       // Extract the PKs from the selectedIngredients array
@@ -100,7 +97,7 @@ export default function UpdateMeal(){
     } catch (error) {
       console.error('Error creating meal:', error)
       //send an error message to the user if not created
-      setError('Failed to create meal. Select an ingredient to continue.')
+      setError('Select an ingredient to continue.')
     }
   }
   
