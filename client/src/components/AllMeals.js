@@ -45,16 +45,19 @@ export default function AllMeals() {
       ) : (
         <section>
           {meals.map((meal) => (
-            <Link to={`/my-meals/${meal.id}`} className="ingredient-plate" key={`meal-${meal.id}`}>
-              <div className="ingredient-images">
+            <Link to={`/my-meals/${meal.id}`} className="plate-holder" key={`meal-${meal.id}`}>
+              <section className="ingredient-plate">
+                
                 {meal.ingredients.map((ingredient, index) => (
-                  <img
-                    key={index}
-                    src={ingredient.image}
-                    alt={ingredient.name}
-                  />
+                  <div key={ingredient.id}>
+                    <img
+                      key={index}
+                      src={ingredient.image}
+                      alt={ingredient.name}
+                    />
+                  </div>
                 ))}
-              </div>
+              </section>
             </Link>
           ))}
         </section>

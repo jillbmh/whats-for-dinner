@@ -2,10 +2,10 @@
     content: "";
     display: block;
     position: absolute;
-    left: calc(50% - 225px);
-    top: calc(50% - 225px);
-    height: 450px;
-    width: 450px;
+    left: calc(50% - 250px);
+    top: calc(50% - 250px);
+    height: 500px;
+    width: 500px;
     border-radius: 50%;
     border-top: solid 6px #CCC;
     opacity: .4;
@@ -13,8 +13,8 @@
   }
   
   .ingredient-plate {
-    width:501px;
-    height:501px;
+    width:600px;
+    height:600px;
     border-radius:51%;
     background:#FFF0F2;
     position:relative;
@@ -28,9 +28,9 @@
   .ingredient-plate div img {
     display:block;
     position:absolute; 
-    top:51%;   left:51%;
-    width:100px;
-    height:100px;
+    top:40%;   left:40%;
+    width:200px;
+    height:200px;
     margin:-51px;
     border-radius:51%;
     text-align:center;
@@ -69,4 +69,83 @@
   
   .ingredient-plate div:nth-child(8) img {
     transform:rotate(316deg) translate(180px) rotate(-316deg);
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .ingredient-plate:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: calc(50% - 125px);
+      top: calc(50% - 125px);
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      border-top: solid 6px #CCC;
+      opacity: .4;
+      background: rgba(255,255,255,1);
+    }
+    
+    .ingredient-plate {
+      width:300px;
+      height:300px;
+      border-radius:51%;
+      background:#FFF0F2;
+      position:relative;
+      margin:0 auto;
+      margin-top: 50px;
+      border-bottom: solid 5px #DDD;
+      box-shadow: 0px 8px 0px rgba(0,0,0,.1);
+    
+    
+    }
+    .ingredient-plate div img {
+      display:block;
+      position:absolute; 
+      top:50%;   left:50%;
+      width:100px;
+      height:100px;
+      margin:-51px;
+      border-radius:51%;
+      text-align:center;
+      line-height:100px;
+    
+    }
+    
+  
+    .ingredient-plate div:nth-child(1) img{
+      transform:translate(100px)
+    }
+    
+    .ingredient-plate div:nth-child(2) img {
+      transform:rotate(46deg) translate(100px) rotate(-46deg);
+    }
+    
+    .ingredient-plate div:nth-child(3) img {
+      transform:rotate(91deg) translate(100px) rotate(-91deg);
+    }
+    
+    .ingredient-plate div:nth-child(4) img {
+      transform:rotate(136deg) translate(100px) rotate(-136deg);
+    }
+    
+    .ingredient-plate div:nth-child(5) img {
+      transform:rotate(181deg) translate(100px) rotate(-181deg);
+    }
+    
+    .ingredient-plate div:nth-child(6) img {
+      transform:rotate(226deg) translate(100px) rotate(-226deg);
+    }
+    
+    .ingredient-plate div:nth-child(7) img {
+      transform:rotate(271deg) translate(100px) rotate(-271deg);
+    }
+    
+    .ingredient-plate div:nth-child(8) img {
+      transform:rotate(316deg) translate(100px) rotate(-316deg);
+    }
+  
+
+
   }

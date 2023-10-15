@@ -8,7 +8,7 @@ export default function Header() {
         <Link to= '/create-meal'>Create Meal</Link>
         <Link to= '/nutritional-info'>Nutritional Info</Link>
         <Link to= '/account/login'>Account </Link>
-        {/* <Link to= '/my-meals'> My Meals</Link> */}
+        <Link to= '/my-meals'> My Meals</Link>
       </nav>
     </header>
   )

@@ -28,7 +28,7 @@ export default function Register() {
       setToken('access-token', data.access)
       setToken('refresh-token', data.refresh)
       // setMessage('Registration was successful')
-      navigate('/create-meal')
+      navigate('/my-meals')
     } catch (error) {
       setMessage(error.response.data.detail)
     }

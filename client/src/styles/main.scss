@@ -24,6 +24,11 @@ body {
 
 main {
   color: #166104;
+  min-height:calc(100vh - 239px);
+  padding: 15px 20px;
+}
+h1 {
+  font-size:1.5rem;
 }
 
 .button {
@@ -54,3 +59,12 @@ main {
 h3 {
   padding-left: 10px;
 }
+
+.centred {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
