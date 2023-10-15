@@ -18,6 +18,7 @@ class MealView(GenericAPIView):
 
 #all of that users meals
 class UsersMealsView(MealView, UserListCreateAPIView, RetrieveUpdateDestroyAPIView):
+    serializer_class = PopulatedMealSerializer
     # permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
 
     def get_queryset(self):

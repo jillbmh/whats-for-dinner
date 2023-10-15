@@ -46,7 +46,6 @@ export default function AllMeals() {
         <section>
           {meals.map((meal) => (
             <Link to={`/my-meals/${meal.id}`} className="ingredient-plate" key={`meal-${meal.id}`}>
-              <h2>Meal {meal.id}</h2>
               <div className="ingredient-images">
                 {meal.ingredients.map((ingredient, index) => (
                   <img

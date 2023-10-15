@@ -3,7 +3,9 @@ import axios from 'axios'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { getToken } from '../lib/auth'
 import { useState, useEffect } from 'react'
-
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 export default function UpdateMeal(){
   const [foodGroups, setFoodGroups] = useState()
@@ -105,71 +107,74 @@ export default function UpdateMeal(){
 
   return (
     <main>
-
-      <section className="foodgroup-filters">
-        {/* map over the foodgroups and create a section for each */}
-        {foodGroups && foodGroups.map((foodGroup) => (
-          <section key={foodGroup.id}>
-            {foodGroup.ingredients_in_foodgroup && foodGroup.ingredients_in_foodgroup.length > 0 ? (
-              <select
-              // set the value of the dropdown as the subgroups
-                value={selectedSubgroups[foodGroup.id] || ''}
-                // uses the handleSGC function to retrieve new value on change
-                onChange={(e) => handleSubgroupChange(e, foodGroup.id)}
-              >
-                <option value="">{foodGroup.name}</option>
-                {[
-                  // maps over ingredients to check they belong to a subgroup, using the ids and spreading 
-                  // into an array of arrays. then filtering out any that dont before creating a flat new set.
-                  ...new Set(
-                    foodGroup.ingredients_in_foodgroup
-                      .map((ingredient) => {
-                        if (ingredient.subgroups && ingredient.subgroups.length > 0) {
-                          return ingredient.subgroups
-                        } else {
-                          return null
-                        }
-                      })
-                      .filter((subgroupId) => subgroupId !== null)
-                      .flat()
-                  )
-                  // map over the subgroups and creates an option element for each
-                ].map((subgroupId) => (
-                  <option key={subgroupId} value={subgroupId}>
-                    {subgroups[subgroupId] ? subgroups[subgroupId].subgroupname : 'Loading...'}
-                  </option>
+      <Container className= "create-meal-container" fluid>
+        <Row>
+          <Col md="6" className="foodgroup-filter-container">
+            {/* map over the foodgroups and create a section for each */}
+            {foodGroups && foodGroups.map((foodGroup) => (
+              <section key={foodGroup.id}>
+                {foodGroup.ingredients_in_foodgroup && foodGroup.ingredients_in_foodgroup.length > 0 ? (
+                  <select className='foodgroup-filters' 
+                  // set the value of the dropdown as the subgroups
+                    value={selectedSubgroups[foodGroup.id] || ''}
+                    // uses the handleSGC function to retrieve new value on change
+                    onChange={(e) => handleSubgroupChange(e, foodGroup.id)}
+                  >
+                    <option value="">{foodGroup.name}</option>
+                    {[
+                      // maps over ingredients to check they belong to a subgroup, using the ids and spreading 
+                      // into an array of arrays. then filtering out any that dont before creating a flat new set.
+                      ...new Set(
+                        foodGroup.ingredients_in_foodgroup
+                          .map((ingredient) => {
+                            if (ingredient.subgroups && ingredient.subgroups.length > 0) {
+                              return ingredient.subgroups
+                            } else {
+                              return null
+                            }
+                          })
+                          .filter((subgroupId) => subgroupId !== null)
+                          .flat()
+                      )
+                      // map over the subgroups and creates an option element for each
+                    ].map((subgroupId) => (
+                      <option key={subgroupId} value={subgroupId}>
+                        {subgroups[subgroupId] ? subgroups[subgroupId].subgroupname : 'Loading...'}
+                      </option>
+                    ))}
+                  </select>
+                ) : 'No subgroups available'}
+              </section>
+            ))}
+            <section className='selected-ingredients'>
+              <h4>Your meal so far:</h4>
+              <ul>
+                {/* this maps over the selected ingredients and returns them as a list */}
+                {selectedIngredients && selectedIngredients.map((ingredient) => (
+                  <li key={ingredient.id}>
+                    {ingredient.name}
+                  </li>
                 ))}
-              </select>
-            ) : 'No subgroups available'}
-          </section>
-        ))}
-      </section>
-      <section className="ingredient-container">
-        <h3>Available Ingredients</h3>
-        <div className="ingredient-grid">
-          {/* maps over the ingredients selected and returns their image and name */}
-          {displayedIngredients && displayedIngredients.map((ingredient) => (
-            //on click that when an ingredient is clicked, it is added to selected-ingredients
-            <div key={ingredient.id} className="ingredient-card" onClick={() => handleIngredientClick(ingredient)}>
-              <img src={ingredient.image} alt={ingredient.name} />
-              <p>{ingredient.name}</p>
+              </ul>
+              {/* //this button executes the create meal function */}
+              <button className="button" onClick={updateMeal}>Update My Meal</button>
+            </section>
+          </Col>
+          <Col md="6" className="ingredient-container">
+            <h4>Select your ingredients:</h4>
+            <div className="ingredient-grid">
+              {/* maps over the ingredients selected and returns their image and name */}
+              {displayedIngredients && displayedIngredients.map((ingredient) => (
+                //on click that when an ingredient is clicked, it is added to selected-ingredients
+                <div key={ingredient.id} className="ingredient-card" onClick={() => handleIngredientClick(ingredient)}>
+                  <img src={ingredient.image} alt={ingredient.name} />
+                  <p>{ingredient.name}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-      <section className='selected-ingredients'>
-        <h3>Your meal so far:</h3>
-        <ul>
-          {/* this maps over the selected ingredients and returns them as a list */}
-          {selectedIngredients && selectedIngredients.map((ingredient) => (
-            <li key={ingredient.id}>
-              {ingredient.name}
-            </li>
-          ))}
-        </ul>
-        {/* //this button executes the create meal function */}
-        <button onClick={updateMeal}>Update My Meal</button>
-      </section>
+          </Col>
+        </Row>
+      </Container>
       {error && (
         <div className="error-message">
           {error}
@@ -177,5 +182,4 @@ export default function UpdateMeal(){
       )}
     </main>
   )
-
 }

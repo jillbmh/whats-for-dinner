@@ -165,7 +165,8 @@ export default function CreateMeal() {
       {error && (
         <div className="error-message">
           {error}
-        </div>       )}
+        </div>
+      )}
     </main>
   )
 }
