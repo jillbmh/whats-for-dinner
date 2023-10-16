@@ -20,7 +20,7 @@ class MealView(GenericAPIView):
 class UsersMealsView(MealView, UserListCreateAPIView, RetrieveUpdateDestroyAPIView):
     serializer_class = PopulatedMealSerializer
     # permission_classes = [IsOwnerOrReadOnly]
-    permission_classes = [IsAuthenticated]
+
 
     def get_queryset(self):
         user_id = self.request.user.id
@@ -37,9 +37,9 @@ class SingleMealDetailView(MealView, RetrieveUpdateDestroyAPIView):
 class MealCreateView(generics.CreateAPIView):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 class UpdateMealView(MealView, UpdateAPIView):
-    # permission_classes = [IsAuthenticated]
+    # permission_classes = [IsOwnerOrReadOnly]
     def patch(self, request, *args, **kwargs):
         return super().patch(request, *args, **kwargs)

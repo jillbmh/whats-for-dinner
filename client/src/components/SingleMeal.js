@@ -12,7 +12,7 @@ export default function SingleMeal() {
 
   async function deleteMeal() {
     try {
-      await axiosAuth.delete(`/api/my-meals/${id}/`)
+      await axios.delete(`/api/my-meals/${id}/`)
       navigate('/my-meals')
     } catch (error) {
       console.log(error)
