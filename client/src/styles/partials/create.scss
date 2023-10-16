@@ -1,0 +1,67 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.create-meal-container {
+    margin-top: 1rem;
+    color: #166104;
+    font-weight: bold;
+}
+
+.foodgroup-filter-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    .foodgroup-filters {
+        display: flex;
+        flex-direction: column;
+        background-color: #FF6BA5;
+        border-radius: 13px;
+        border-color: #F5F5F5;
+        border-style: solid;
+        border-width: 2px;
+        color: #FFF0F2;
+        font-weight: bold;
+        font-size: 1rem;
+        padding: 7px;
+        margin: 7px;
+        min-width: 15.5rem;
+    }
+    .button {
+        max-width: 300px;
+    }
+}
+
+.ingredient-card {
+    max-width: 40%;
+    display: inline-block;
+    margin-bottom:110px;
+    margin-right:30px;
+    p {
+        position: relative;
+        background-color: rgb(255 177 90 / 62%);
+        color: #864a0e;
+        border-radius: 10px;
+        padding: 5px;
+        margin-top: -160px;
+        max-width:150px;
+        margin-left:10px;
+        display:grid;
+    }
+    img {
+        max-width: 150px;
+        border-style: solid;
+        border-color: #FFB15A;
+        border-radius: 10px;
+        margin: 10px;
+    }
+}
+
+.selected-ingredients {
+    margin-top: 2rem;
+    // border-style: solid;
+    // border-radius: 15px;
+    min-height: 200px;
+    max-width: 300px;
+    h4 {
+        padding-left: 10px;
+    }
+}

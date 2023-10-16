@@ -13,13 +13,27 @@ export default function AllMeals() {
         setMeals(response.data)
         console.log(response.data)
       } catch (error) {
-        setError('Failed to get meals.')
-        console.error(error.response)
+        if (error.response) {
+          if (error.response.status === 403) {
+            setError('You need to log in to see your meals')
+          } else {
+            setError(error.response.data.detail)
+          }
+          console.error(error.response)
+        } else if (error.request) {
+          setError('Network Error')
+          console.error(error.request)
+        } else {
+          setError('Ooops, something went wrong, please try again later')
+          console.error('Error', error.message)
+        }
       }
     }
-
+  
     getMeals()
   }, [])
+  
+  
 
   return (
     <main>
@@ -31,23 +45,25 @@ export default function AllMeals() {
       ) : (
         <section>
           {meals.map((meal) => (
-            <div className="ingredient-plate" key={`meal-${meal.id}`}>
-              <h2>Meal {meal.id}</h2>
-              <div className="ingredient-images">
+            <Link to={`/my-meals/${meal.id}`} className="plate-holder" key={`meal-${meal.id}`}>
+              <section className="ingredient-plate">
+                
                 {meal.ingredients.map((ingredient, index) => (
-                  <img
-                    key={index}
-                    src={ingredient.image}
-                    alt={ingredient.name}
-                  />
+                  <div key={ingredient.id}>
+                    <img
+                      key={index}
+                      src={ingredient.image}
+                      alt={ingredient.name}
+                    />
+                  </div>
                 ))}
-              </div>
-            </div>
+              </section>
+            </Link>
           ))}
         </section>
       )}
       <section className="button-container">
-        <Link to="/create-meal" className="button">Create another</Link>
+        <Link to="/create-meal" className="button">Create a Meal</Link>
         <Link to="*" className="button">Print</Link>
       </section>
     </main>

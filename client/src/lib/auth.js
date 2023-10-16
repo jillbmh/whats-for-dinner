@@ -6,6 +6,11 @@ export const getToken = (tokenName) => {
   return localStorage.getItem(tokenName)
 }
 
+export const clearTokens = () => {
+  localStorage.removeItem('access-token')
+  localStorage.removeItem('refresh-token')
+}
+
 export const tokenIsValid = (tokenName) => {
   const token = getToken(tokenName)
 
@@ -18,3 +23,4 @@ export const tokenIsValid = (tokenName) => {
     return true
   }
 }
+

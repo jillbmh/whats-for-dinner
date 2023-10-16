@@ -1,1 +1,47 @@
-[{"model": "foodgroups.foodgroup", "pk": 1, "fields": {"name": "Protein", "subgroup": [], "ingredients": []}}, {"model": "foodgroups.foodgroup", "pk": 2, "fields": {"name": "Vegetables (and Fruit)", "subgroup": [], "ingredients": []}}, {"model": "foodgroups.foodgroup", "pk": 3, "fields": {"name": "Sauces/Extra Flavour", "subgroup": [], "ingredients": []}}, {"model": "foodgroups.foodgroup", "pk": 4, "fields": {"name": "Dairy and Dairy Alternatives", "subgroup": [], "ingredients": []}}, {"model": "foodgroups.foodgroup", "pk": 5, "fields": {"name": "Starchy Carbohydrates", "subgroup": [], "ingredients": []}}]
+[
+    {
+        "model": "foodgroups.foodgroup",
+        "pk": 1,
+        "fields": {
+            "name": "Protein",
+            "subgroup": [],
+            "ingredients": []
+        }
+    },
+    {
+        "model": "foodgroups.foodgroup",
+        "pk": 2,
+        "fields": {
+            "name": "Starchy Carbohydrates",
+            "subgroup": [],
+            "ingredients": []
+        }
+    },
+    {
+        "model": "foodgroups.foodgroup",
+        "pk": 3,
+        "fields": {
+            "name": "Vegetables (and Fruit)",
+            "subgroup": [],
+            "ingredients": []
+        }
+    },
+    {
+        "model": "foodgroups.foodgroup",
+        "pk": 4,
+        "fields": {
+            "name": "Sauces/Extra Flavour",
+            "subgroup": [],
+            "ingredients": []
+        }
+    },
+    {
+        "model": "foodgroups.foodgroup",
+        "pk": 5,
+        "fields": {
+            "name": "Dairy and Dairy Alternatives",
+            "subgroup": [],
+            "ingredients": []
+        }
+    }
+]
