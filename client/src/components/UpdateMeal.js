@@ -108,7 +108,7 @@ export default function UpdateMeal(){
 
   return (
     <main>
-      { foodGroups.length > 0 ? (
+      { foodGroups && foodGroups.length > 0 ? (
         <Container className= "create-meal-container" fluid>
           <Row>
             <Col md="6" className="foodgroup-filter-container">

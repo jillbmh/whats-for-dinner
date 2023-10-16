@@ -33,15 +33,18 @@
 .ingredient-card {
     max-width: 40%;
     display: inline-block;
+    margin-bottom:110px;
+    margin-right:30px;
     p {
         position: relative;
-        background-color: #FFB15A;
-        color: #BE3A17;
+        background-color: rgb(255 177 90 / 62%);
+        color: #864a0e;
         border-radius: 10px;
         padding: 5px;
-        margin-top: -45px;
+        margin-top: -160px;
         max-width:150px;
         margin-left:10px;
+        display:grid;
     }
     img {
         max-width: 150px;

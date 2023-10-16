@@ -63,7 +63,7 @@ export default function AllMeals() {
         </section>
       )}
       <section className="button-container">
-        <Link to="/create-meal" className="button">Create another</Link>
+        <Link to="/create-meal" className="button">Create a Meal</Link>
         <Link to="*" className="button">Print</Link>
       </section>
     </main>

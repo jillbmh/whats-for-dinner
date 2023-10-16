@@ -16,12 +16,12 @@ class Ingredient(models.Model):
         'subgroups.Subgroup',
         related_name='ingredients'
     )
-    user = models.ForeignKey(
-        'users.User',
-        related_name='ingredients',
-        on_delete=models.SET_NULL,
-        null=True
-    )
+    # user = models.ForeignKey(
+    #     'users.User',
+    #     related_name='ingredients',
+    #     on_delete=models.CASCADE,
+    #     null=True
+    # )
     
     def __str__(self):
         return f"{self.name} -{self.foodgroup}"

@@ -25,15 +25,15 @@ export default function HomePage() {
           </Col>
 
           <Col md="6">
-            <img className="heroimage" src="https://res.cloudinary.com/dam1q6nnp/image/upload/v1697297574/WhatsApp_Image_2023-10-14_at_16.18.01_ak4pmk.jpg" alt="food" />
+            <img className="heroimage" src="https://res.cloudinary.com/dam1q6nnp/image/upload/v1697439750/WhatsApp_Image_2023-10-14_at_16.37.08_1_fzttpl.jpg" alt="food" />
           </Col>
 
         </Row>
 
         <Row className="homepagehero">
           <Col md="12" className="hero-background" >
-            <h2>Sign up today!</h2>
-            <Link to="/account/register" className="button">Sign Up</Link>
+            <h2>Sign up for free today!</h2>
+            <Link to="/account/register" className="button-pink">Sign Up</Link>
 
 
           </Col>

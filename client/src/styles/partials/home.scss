@@ -11,12 +11,34 @@
 }
 
 .hero-background {
-    background: #ffffff url(https://res.cloudinary.com/dam1q6nnp/image/upload/v1697297751/WhatsApp_Image_2023-10-14_at_16.18.18_m1c2uc.jpg) center top/cover no-repeat;
+    background: #ffffff url(https://res.cloudinary.com/dam1q6nnp/image/upload/v1697441500/background_hero_kdlccz.jpg) center top/cover no-repeat;
     border-radius:20px;
-    min-height:400px;
+    min-height:240px;
+    text-align:center;
 }
 
 .hero-background h2 {
     padding-top:50px;
-    color:#ffffff;
+    color:#166104;
 }
+
+.button-pink {
+    display: inline-block;
+    background-color: #FF6BA5;
+    color: #FFF0F2;
+    padding: 7px;
+    margin:10px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .button-pink:hover {
+    background-color: #E4F0C5;
+    color: #166104;
+  }
