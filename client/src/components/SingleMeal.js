@@ -12,7 +12,7 @@ export default function SingleMeal() {
 
   async function deleteMeal() {
     try {
-      await axiosAuth.delete(`/api/my-meals/${id}/`)
+      await axiosAuth.delete(`/api/my-meals/delete/${id}/`)
       navigate('/my-meals')
     } catch (error) {
       console.log(error)
@@ -21,7 +21,7 @@ export default function SingleMeal() {
   useEffect(() => {
     const getMeal = async () => {
       try {
-        const { data } = await axios.get(`/api/my-meals/${id}/`)
+        const { data } = await axiosAuth.get(`/api/my-meals/${id}/`)
         setIngredients(data.ingredients)
         console.log(data)
       } catch (error) {
