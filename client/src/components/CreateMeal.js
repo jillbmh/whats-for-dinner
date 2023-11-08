@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Spinner from './Spinner'
+import axiosAuth from '../lib/axios'
 
 
 export default function CreateMeal() {
@@ -34,11 +35,11 @@ export default function CreateMeal() {
     async function getData() {
       try {
         // get food-groups data
-        const foodGroupsResponse = await axios.get('/api/food-groups/')
+        const foodGroupsResponse = await axiosAuth.get('/api/food-groups/')
         setFoodGroups(foodGroupsResponse.data)
 
         // get subgroups data
-        const subgroupsResponse = await axios.get('/api/subgroups/')
+        const subgroupsResponse = await axiosAuth.get('/api/subgroups/')
         const subgroupData = subgroupsResponse.data
 
         // Organise subgroup data into an object, iterate over it to get IDs
@@ -51,6 +52,7 @@ export default function CreateMeal() {
         setSubgroups(subgroupMap)
       } catch (error) {
         console.error(error)
+        setError('You need to log in to create a meal')
       }
     }
     getData()
@@ -97,24 +99,24 @@ export default function CreateMeal() {
 
   return (
     <main>
-      { foodGroups.length > 0 ? (
+      {error ? (
+        <>
+          <p>{error}</p>
+          <Link to="/account/login" className="button">Log in</Link>
+        </>
+      ) : foodGroups.length > 0 ? (
         <Container className="create-meal-container" fluid> 
           <Row>
             <Col md="6" className="foodgroup-filter-container">
-              {/* map over the foodgroups and create a section for each */}
               {foodGroups.map((foodGroup) => (
                 <section key={foodGroup.id}>
                   {foodGroup.ingredients_in_foodgroup && foodGroup.ingredients_in_foodgroup.length > 0 ? (
                     <select className='foodgroup-filters' 
-                    // set the value of the dropdown as the subgroups
                       value={selectedSubgroups[foodGroup.id] || ''}
-                      // uses the handleSGC function to retrieve new value on change
                       onChange={(e) => handleSubgroupChange(e, foodGroup.id)}
                     >
                       <option value="">{foodGroup.name}</option>
                       {[
-                        // maps over ingredients to check they belong to a subgroup, using the ids and spreading 
-                        // into an array of arrays. then filtering out any that dont before creating a flat new set.
                         ...new Set(
                           foodGroup.ingredients_in_foodgroup
                             .map((ingredient) => {
@@ -127,9 +129,8 @@ export default function CreateMeal() {
                             .filter((subgroupId) => subgroupId !== null)
                             .flat()
                         )
-                        // map over the subgroups and creates an option element for each
                       ].map((subgroupId) => (
-                        <option key={subgroupId} value={subgroupId} >
+                        <option key={subgroupId} value={subgroupId}>
                           {subgroups[subgroupId] ? subgroups[subgroupId].subgroupname : 'Loading...'}
                         </option>
                       ))}
@@ -140,23 +141,19 @@ export default function CreateMeal() {
               <section className='selected-ingredients'>
                 <h4>Your meal so far:</h4>
                 <ul>
-                  {/* this maps over the selected ingredients and returns them as a list */}
                   {selectedIngredients.map((ingredient) => (
                     <li key={ingredient.id}>
                       {ingredient.name}
                     </li>
                   ))}
                 </ul>
-                {/* //this button executes the create meal function */}
               </section>
               <button className='button' onClick={createMeal}>Create My Meal</button>
             </Col>
             <Col md="6" className="ingredient-container">
               <h4>Select your ingredients:</h4>
               <div className="ingredient-grid">
-                {/* maps over the ingredients selected and returns their image and name */}
                 {displayedIngredients.map((ingredient) => (
-                  //on click that when an ingredient is clicked, it is added to selected-ingredients
                   <div key={ingredient.id} className="ingredient-card" onClick={() => handleIngredientClick(ingredient)}>
                     <img src={ingredient.image} alt={ingredient.name} />
                     <p>{ingredient.name}</p>

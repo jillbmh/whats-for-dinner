@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import axiosAuth from '../lib/axios'
 
 export default function AllMeals() {
   const [meals, setMeals] = useState([])
@@ -9,7 +10,7 @@ export default function AllMeals() {
   useEffect(() => {
     const getMeals = async () => {
       try {
-        const response = await axios.get('/api/my-meals/')
+        const response = await axiosAuth.get('/api/my-meals/')
         setMeals(response.data)
         console.log(response.data)
       } catch (error) {
@@ -24,7 +25,7 @@ export default function AllMeals() {
           setError('Network Error')
           console.error(error.request)
         } else {
-          setError('Ooops, something went wrong, please try again later')
+          setError('You need to log in to see your meals')
           console.error('Error', error.message)
         }
       }
@@ -34,38 +35,47 @@ export default function AllMeals() {
   }, [])
   
   
-
   return (
-    <main>
-      <h1>Here are the meals you have created:</h1>
-      {error ? (
-        <p>{error}</p>
-      ) : meals.length === 0 ? (
-        <p>Looks like you havent created any yet.</p>
-      ) : (
-        <section>
-          {meals.map((meal) => (
-            <Link to={`/my-meals/${meal.id}`} className="plate-holder" key={`meal-${meal.id}`}>
-              <section className="ingredient-plate">
-                
-                {meal.ingredients.map((ingredient, index) => (
-                  <div key={ingredient.id}>
-                    <img
-                      key={index}
-                      src={ingredient.image}
-                      alt={ingredient.name}
-                    />
-                  </div>
-                ))}
-              </section>
-            </Link>
-          ))}
-        </section>
-      )}
-      <section className="button-container">
-        <Link to="/create-meal" className="button">Create a Meal</Link>
-        <Link to="*" className="button">Print</Link>
-      </section>
-    </main>
+    <>
+      <main>
+        {error ? (
+          <>
+            <p>{error}</p>
+            <Link to="/account/login" className="button">Log in</Link>
+          </>
+        ) : meals.length === 0 ? (
+          <>
+            <p>Looks like you havent created any yet.</p>
+            <Link to="/create-meal" className="button">Get Started!</Link>
+          </>
+        ) : (
+          <section>
+            <h1>Here are the meals you have created:</h1>
+            {meals.map((meal) => (
+              <Link to={`/my-meals/${meal.id}`} className="plate-holder" key={`meal-${meal.id}`}>
+                <section className="ingredient-plate">
+                  {meal.ingredients.map((ingredient, index) => (
+                    <div key={ingredient.id}>
+                      <img
+                        key={index}
+                        src={ingredient.image}
+                        alt={ingredient.name}
+                      />
+                    </div>
+                  ))}
+                </section>
+              </Link>
+            ))}
+          </section>
+        )}
+  
+        {!error && meals.length > 0 && (
+          <section className="button-container">
+            <Link to="/create-meal" className="button">Create a Meal</Link>
+            <Link to="*" className="button">Print</Link>
+          </section>
+        )}
+      </main>
+    </>
   )
 }

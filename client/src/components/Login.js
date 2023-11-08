@@ -24,7 +24,7 @@ export default function Login(){
       const { data } = await axios.post('/api/auth/login/', formData)
       setToken('access-token', data.access)
       setToken('refresh-token', data.refresh)
-      navigate('/my-meals')
+      navigate('/')
     } catch (error) {
       setMessage(error.response.data.detail)
     }
