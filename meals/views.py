@@ -14,6 +14,7 @@ from lib.views import UserListCreateAPIView
 class MealView(GenericAPIView):
     queryset=Meal.objects.all()
     serializer_class=MealSerializer
+    permission_classes = [IsAuthenticated]
 
 
 #all of that users meals
@@ -29,16 +30,15 @@ class UsersMealsView(MealView, UserListCreateAPIView, RetrieveUpdateDestroyAPIVi
 #single meal 
 class SingleMealDetailView(MealView, RetrieveUpdateDestroyAPIView):
     serializer_class = PopulatedMealSerializer
-    # permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly]
     queryset = Meal.objects.all()
 
 # create meal
 class MealCreateView(generics.CreateAPIView):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
-    # permission_classes = [IsAuthenticated]
+
 
 class UpdateMealView(MealView, UpdateAPIView):
-    # permission_classes = [IsAuthenticated]
     def patch(self, request, *args, **kwargs):
         return super().patch(request, *args, **kwargs)
