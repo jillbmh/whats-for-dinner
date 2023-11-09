@@ -2,7 +2,7 @@
 
 ## Description 
 
-This was our fourth and final project for SEI. It was a solo project and we had 10 days to complete it. 
+This was our fourth and final project for the Software Engineering Immersive with the General Assembly. It was a solo project and we had 10 days to complete it. 
 
 You can find ‘What’s for Dinner?’ on Heroku, here: https://whats-for-dinner-jbmh-667af0679eab.herokuapp.com/
 
@@ -26,7 +26,7 @@ I used the following technologies:
 
 We were given the following brief:
 
-![requirements](../whats-for-dinner/client/src/images/p4-req.png)
+![requirements](/client/src/images/p4-req.png)
 
 ## The Idea
 
@@ -40,25 +40,25 @@ I started with planning the project on Trello and figma. I wanted to be as clear
 
 I  researched colour schemes and used this website for inspiration:
 
-![colour ideas](../whats-for-dinner/client/src/images/p4-ideas.png)
+![colour ideas](/client/src/images/p4-ideas.png)
 
 I knew it would be difficult to make the website colourful and Learning Disability friendly while also being eye catching. I loved this website as I felt it did everything I wanted to do with my design. I used their colour scheme for inspiration.
 
 I started with my wireframes. I spend a long time on these planning the user journey, I wanted to make sure I was clear what it would be like to use the site.
 
-![wireframe](../whats-for-dinner/client/src/images/p4-wireframe.png)
+![wireframe](/client/src/images/p4-wireframe.png)
 
 I knew I wanted to use lots of colour, linking it to the NHS eatwell plate:
 
-![eat well plate](../whats-for-dinner/client/src/images/eatwell-plate.png)
+![eat well plate](/client/src/images/eatwell-plate.png)
 
 I planned my to-do list on Trello, planning what I would do each day as well as planning ahead for some stretch goals. 
 
-! [trello](../whats-for-dinner/client/src/images/p4-trello.png)
+! [trello](/client/src/images/p4-trello.png)
 
 I planned how my back end relationships would work on an ERD:
 
-![erd](../whats-for-dinner/client/src/images/p4-erd.png)
+![erd](/client/src/images/p4-erd.png)
 
 ## Build/Code Process
 
@@ -70,7 +70,7 @@ My understanding of the relationships and views was really tested during this pr
 
 I then moved onto the client side. It was great to be able to see the project coming together. The ‘create meal’ component was the most challenging, I wanted to be able to create a dropdown for every food group, see the images of the ingredients,  create a list of ingredients selected, see them on a plate and toggle the selected ingredients so they could be unselected. I made sure to write plenty of notes to make the code more readable. 
 
-![code example](../whats-for-dinner/client/src/images/p4-code1.png)
+![code example](/client/src/images/p4-code1.png)
 
 I used log in, the navigation in the header and the footer as code for when I needed something a little easier, that way I knew I could make the most of my time. It was challenging as I had covid and my toddler was at home with covid so it helped being able to identify which bits of code were easier to do.
 
@@ -78,7 +78,7 @@ I made the update meal component a replica of the create and then tweaked it. I 
 
 I moved onto the styling last. I did this as I had wanted to prioritise the functionality. I was really pleased to be able to get the images on a plate! 
 
-![code example](../whats-for-dinner/client/src/images/p4-code2.png)
+![code example](/client/src/images/p4-code2.png)
 
 ## Challenges & Wins
 
